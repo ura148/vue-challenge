@@ -45,8 +45,8 @@ var vm = new Vue({
       errorMessageStyle: function () {
         //canBuyが偽の時に赤く表示する
         return {
-          border: this.canbuy ? '' : '1px solid red',
-          color: this.canbuy ? '' : 'red'
+          border: this.canBuy ? '' : '1px solid red',
+          color: this.canBuy ? '' : 'red'
         }
       }
     }
