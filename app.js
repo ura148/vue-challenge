@@ -56,13 +56,16 @@ var vm = new Vue({
       }
     },
     computed: {
-      totalPrice: () => {
-        return this.items.reduce( (sum, item) =>{
+      totalPrice: function () {
+        return this.items.reduce( function(sum, item) {
           return sum + (item.price * item.quantity)
         }, 0)
       },
-      totalPriceWithTax: () => {
+      totalPriceWithTax: function () {
         return Math.floor(this.totalPrice * 1.08)
+      },
+      canBuy: function () {
+        return this.totalPrice >= 1000  //1000円以上から購入可能にする。
       }
     }
 })
@@ -74,8 +77,6 @@ var vm = new Vue({
 //     loggedInButton: 'ログイン済みのため購入できます'
 //   }
 // })
-
-console.log(vm);
 
 vm.$watch(function (){
   return this.items[0].quantity
