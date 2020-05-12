@@ -41,6 +41,13 @@ var vm = new Vue({
       },
       canBuy: function () {
         return this.totalPrice >= 1000  //1000円以上から購入可能にする。
+      },
+      errorMessageStyle: function () {
+        //canBuyが偽の時に赤く表示する
+        return {
+          border: this.canbuy ? '' : '1px solid red',
+          color: this.canbuy ? '' : 'red'
+        }
       }
     }
 })
