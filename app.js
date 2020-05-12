@@ -31,18 +31,18 @@ var vm = new Vue({
       }
     },
     computed: {
-      totalPrice: () => {
+      totalPrice () {
         return this.items.reduce( (sum, item) => {
           return sum + (item.price * item.quantity)
         }, 0)
       },
-      totalPriceWithTax: function () {
+      totalPriceWithTax () {
         return Math.floor(this.totalPrice * 1.08)
       },
-      canBuy: function () {
+      canBuy () {
         return this.totalPrice >= 1000  //1000円以上から購入可能にする。
       },
-      errorMessageStyle: function () {
+      errorMessageStyle () {
         //canBuyが偽の時に赤く表示する
         return {
           border: this.canBuy ? '' : '1px solid red',
